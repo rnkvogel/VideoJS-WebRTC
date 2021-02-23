@@ -21,10 +21,8 @@
   let pc;//peer connection
   let ws;//live websocket
   let reconn = false;// flag for reconnection
- //const player = videojs('video');
 
-
-  //Ice Servers:
+ //Ice Servers:
   let iceServers = [];
   // Select elements here
 
@@ -437,23 +435,3 @@ var wait = ms => new Promise(resolve => setTimeout(resolve, ms));
   }
 })().catch(e => console.log(e));
 
-
-
-// Listen to the "change" event.
-/*
-audioTrackList.addEventListener('change', function() {
- let player = document.getElementsByTagName('video')[0];
-let audioTrackList = player.audioTracks()
-
-
-  // Log the currently enabled AudioTrack label.
-  for (var i = 0; i < audioTrackList.length; i++) {
-    var track = audioTrackList[i];
-
-    if (track.enabled) {
-      videojs.log(track.label);
-      return;
-    }
-  }
-})
-*/
