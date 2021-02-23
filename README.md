@@ -1,4 +1,4 @@
-Millicast WebRTC VideoJS player with custom skin.
+WebRTC VideoJS player with custom skin using Millicast streaming
 
 Required
 Millicast account.
