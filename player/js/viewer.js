@@ -5,7 +5,7 @@
 
 
   let params     = new URLSearchParams(document.location.search.substring(1));
-  let accountId  = params.get('accountId');
+  let accountId  = params.get('account');
 
   let streamName = params.get('id');
 
@@ -13,7 +13,7 @@
   let lang = document.getElementById('subtitles');
   let poster = "images/starting.png";
   console.log('Millicast Viewer Stream: ', streamName);
-
+ 
  //Millicast required info.
   let url;// path to Millicast Server - Returned from API
   let jwt;//authorization token - Returned from API
@@ -21,8 +21,10 @@
   let pc;//peer connection
   let ws;//live websocket
   let reconn = false;// flag for reconnection
+ //const player = videojs('video');
 
- //Ice Servers:
+
+  //Ice Servers:
   let iceServers = [];
   // Select elements here
 
@@ -33,11 +35,11 @@
   player.muted = !player.muted;
   if (!player.muted){
   audioBtn.style.visibility = 'hidden';
-  //player.play();
+  //player.play(); 
   }
 }
 
-
+ 
 
  function connect() {
     reconn = false;
@@ -76,7 +78,7 @@
 
       if (vidWin) {
         vidWin.srcObject = event.streams[0];
-
+ 
         vidWin.controls  = false;
        }
      };
@@ -91,7 +93,7 @@
             if(window.getComputedStyle(el, null).display === 'none'){
               el.style.display = 'unset';
             }
-
+            
             startUserCount(accountId, streamName, document.getElementById('count'));
           }
 
@@ -108,7 +110,7 @@
             pc = null;
             if(!ws){
               connect();
-              ready();
+             
             }
           }
           break;
@@ -134,7 +136,7 @@
           } catch(e){
             console.log('create offer stereo',offer);
           }
-
+          
           //set local description and send offer to media server via ws.
           pc.setLocalDescription(desc)
             .then(() => {
@@ -219,7 +221,7 @@
           } else if( msg.name === 'stopped'){
             console.log('Video Stopped');
             showMsg('Stream is not available.');
-            //todo - reset video object, re-instate handshake.
+            //todo - reset video object, re-instate handshake. 
             let vidWin = document.getElementsByTagName('video')[0];
 
          if (vidWin) {
@@ -234,7 +236,7 @@
           break;
       }
     })
-
+  
   }
 
  function doReconnect(){
@@ -338,18 +340,18 @@
     let isIEedge = agent.indexOf("edge") > -1;
     let isEdgium = agent.indexOf("edg") > -1;
     let isIOSChrome = agent.match("crios");
-
+    
     let isChrome = false;
     if (isIOSChrome) {
-    } else if( isChromium !== null && typeof isChromium !== "undefined" &&
-                vendorName === "Google Inc." && isOpera === false &&
+    } else if( isChromium !== null && typeof isChromium !== "undefined" && 
+                vendorName === "Google Inc." && isOpera === false && 
                 isIEedge === false && isEdgium === false) {
       // is Google Chrome
       isChrome = true;
     }
 
     console.log('isChrome: ',isChrome);
-    if(isChrome){
+    if(isChrome){ 
       // console.log('agent: ',navigator.userAgent);
       //Find the audio m-line
       const res = /m=audio 9 UDP\/TLS\/RTP\/SAVPF (.*)\r\n/.exec(offer.sdp);
@@ -357,8 +359,8 @@
       const audio = res[0];
       //Get free payload number for multiopus
       const pt  = Math.max(...res[1].split(" ").map( Number )) + 1;
-      //Add multiopus
-      const multiopus = audio.replace("\r\n"," ") + pt + "\r\n" +
+      //Add multiopus 
+      const multiopus = audio.replace("\r\n"," ") + pt + "\r\n" + 
         "a=rtpmap:" + pt + " multiopus/48000/6\r\n" +
         "a=fmtp:" + pt + " channel_mapping=0,4,1,2,3,5;coupled_streams=2;minptime=10;num_streams=4;useinbandfec=1\r\n";
       //Change sdp
@@ -379,12 +381,12 @@ function ready() {
   let player = document.getElementsByTagName('video')[0];;
  //VideoJs set up
  let SRC_CONFIG = [
-		{ type: 'application/webrtc', src: 'video'},
-		];
+		{ type: 'application/webrtc', src: 'video'},		  
+		];			
 	let SETUP_CONFIG = {
       plugins:{},
-			controls: true,
-      autoplay: true,
+			controls: true, 
+      autoplay: true, 
 			preload: "auto",
 			poster: poster,
 			muted: true,
@@ -395,9 +397,9 @@ function ready() {
     this.on('loadedmetadata', function(){ console.log("loadedmetadata"); });
     });
     myPlayer.src(SRC_CONFIG);
-    myPlayer.on('error', function(e){
+    myPlayer.on('error', function(e){ 
     //alert("error", e);
-    });
+    }); 
    if(vidMsg === "") {
    //setTimeout(function(){
    myPlayer.src(SRC_CONFIG);
@@ -406,7 +408,7 @@ function ready() {
    }
    //end ready()
    }
-
+  
   function getURLParameter(name) {
      return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
   }
@@ -434,4 +436,3 @@ var wait = ms => new Promise(resolve => setTimeout(resolve, ms));
     await wait(100);
   }
 })().catch(e => console.log(e));
-
