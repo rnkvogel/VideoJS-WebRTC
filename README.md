@@ -1,4 +1,4 @@
-Millicast WebRTC stream with Custom Options.
+Millicast WebRTC VideoJS player with custom skin.
 
 Required
 Millicast account.
@@ -9,8 +9,9 @@ Demo link: https://rnkvogel.github.io/Millicast-VideoJS/
 
 Input your stream name and account. Secure token is not required if you have not set up secure stream.
 
-Initial build will load if streaming or reload when streaming.
+Initial build will load if streaming or reload of page when streaming.(issue)
 
-
+VSG.CSS was created using this skin generator.
+https://www.scriptsmashup.com/Video_Skin_Generator/Videojs/videojs-skin-generator.html
 
 
