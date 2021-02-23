@@ -5,7 +5,7 @@ Millicast account.
 https://millicast.com/
 
 Once you have created your Millicast account create a new stream id.
-Demo link: https://rnkvogel.github.io/Millicast-VideoJS/
+Demo link: https://rnkvogel.github.io/VideoJS-WebRTC/
 
 Input your stream name and account. Secure token is not required if you have not set up secure stream.
 
