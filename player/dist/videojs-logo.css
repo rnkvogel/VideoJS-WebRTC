@@ -1,0 +1,17 @@
+/*! @name videojs-logo @version 2.0.0 @license MIT */
+.video-js.vjs-logo{
+display:block;
+}
+.vjs-logo .vjs-logo-content{
+position:fixed;
+
+left: 83%;
+height: auto;
+width: 60px;
+opacity:1;
+transition:visibility 5s,opacity 10s}
+.video-js.vjs-logo .vjs-logo-content.vjs-logo-hide{visibility:show;opacity:80%}
+img {
+width: 400%;
+padding:10%;
+}
