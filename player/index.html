@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title></title>
+<link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+<link href="dist/vsg-skin.css" rel="stylesheet">
+<script src="js/adapter-latest.js"></script>
+<script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+<script src="js/viewer.js"></script>
+<script src="js/usercount.js"></script>
+</head>
+<body>  
+<div id="container">
+<video id="player" class="video-js" data-setup='{ "controls": true, "preload": "auto",  "languages":{"es":{"Play":"Juego"}}}' playsinline allowfullscreen > 
+  <p class="vjs-no-js" preload >To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+<track kind="subtitles" src="" srclang="en" label="English">
+  <audio id="player" src='' playsinline controls autoplay type="video/ogg" ></audio>
+</track><!-- Tracks need an ending tag thanks to IE9 -->
+<track kind="subtitles" src="" srclang="sp" label="Spanish">
+	<audio id="player" src='' playsinline controls autoplay type="video/ogg" ></audio>
+</track>
+ </video>
+</div>
+<div id="userCntView"><p id="count">viewing: 00</p></div>
+<div id="msgView">
+  <h3 id="msgOverlay"></h3>
+</div>
+<!-- <button id="audioBtn" class="btn-audio"  onClick="toggleMute()" type="button"></button>  -->
+</div>
+</body>
+<!-- <script src="js/vtt.js"></script> -->
+</html>
