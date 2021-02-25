@@ -404,7 +404,8 @@ function ready() {
    if(vidMsg === "") {
    //setTimeout(function(){
    myPlayer.src(SRC_CONFIG);
-	   et audiotracksrc = "";
+	   
+let audiotracksrc = "";
 
 
 let myAudioTrackList = [{
