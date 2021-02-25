@@ -20,8 +20,13 @@ VSG.CSS was created using this skin generator.
 
 https://www.scriptsmashup.com/Video_Skin_Generator/Videojs/videojs-skin-generator.html
 
-Working on.
+Control Bar includes
+1. Closed Captions for audio tranlation text
+2. AudioTrack selector for Audio Tranlations
+
+To DO 
 1. Seperate MultiOpus to be mapped to audioTrack changes
+2. VTT Server Wehook in real time from https://webcaptioner.com/captioner/settings/experiments
 
 
 
