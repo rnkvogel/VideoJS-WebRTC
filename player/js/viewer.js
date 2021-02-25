@@ -386,11 +386,12 @@ function ready() {
 	let SETUP_CONFIG = {
       plugins:{},
 			controls: true, 
-      autoplay: true, 
+                        autoplay: true, 
 			preload: "auto",
 			poster: poster,
 			muted: true,
-      errorDisplay: false,
+                        errorDisplay: false,
+		        languages:{"es":{"Play":"Juego"}},
 		  src: SRC_CONFIG
 		};
     let myPlayer = videojs('player', SETUP_CONFIG , function(e){
@@ -403,6 +404,30 @@ function ready() {
    if(vidMsg === "") {
    //setTimeout(function(){
    myPlayer.src(SRC_CONFIG);
+	   et audiotracksrc = "";
+
+
+let myAudioTrackList = [{
+  id: 'spanish-audio-track',
+  kind: 'translation',
+  label: 'Spanish',
+  language: 'es',
+  audio: audiotracksrc
+  },
+ {
+  id: 'default',
+  kind: 'translation',
+  label: 'English',
+  language: 'en',
+
+}]
+
+myAudioTrackList.forEach( data => {
+ const track = new videojs.AudioTrack(data);
+  myPlayer.audioTracks().addTrack(track);
+   
+});
+	   
 
    //}, 5000);
    }
