@@ -392,16 +392,14 @@ function ready() {
 			muted: true,
                         errorDisplay: false,
 		        languages:{"es":{"Play":"Juego"}},
-		  src: SRC_CONFIG
+		        src: SRC_CONFIG
 		};
     let myPlayer = videojs('player', SETUP_CONFIG , function(e){
     this.on('loadedmetadata', function(){ console.log("loadedmetadata"); });
     });
     myPlayer.src(SRC_CONFIG);
    let audiotracksrc = "";
-
-
-let myAudioTrackList = [{
+   let myAudioTrackList = [{
   id: 'spanish-audio-track',
   kind: 'translation',
   label: 'Spanish',
@@ -434,6 +432,7 @@ audioBtn.change = function(data){
       return;
     }
   }
+};
     myPlayer.on('error', function(e){ 
     //alert("error", e);
     }); 
