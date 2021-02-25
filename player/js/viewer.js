@@ -398,14 +398,7 @@ function ready() {
     this.on('loadedmetadata', function(){ console.log("loadedmetadata"); });
     });
     myPlayer.src(SRC_CONFIG);
-    myPlayer.on('error', function(e){ 
-    //alert("error", e);
-    }); 
-   if(vidMsg === "") {
-   //setTimeout(function(){
-   myPlayer.src(SRC_CONFIG);
-	   
-let audiotracksrc = "";
+   let audiotracksrc = "";
 
 
 let myAudioTrackList = [{
@@ -428,8 +421,25 @@ myAudioTrackList.forEach( data => {
   myPlayer.audioTracks().addTrack(track);
    
 });
-	   
 
+// Listen to the "change" event.
+let audioBtn = document.getElementsByClassName(".vjs-audio-button");
+////////////////////////////////////////////////////////////
+audioBtn.change = function(data){
+  for (var i = 0; i < myAudioTrackList.length; i++) {
+   var track = myAudioTrackList[i];
+    if (track.enabled) {
+      console.log(track.label);
+
+      return;
+    }
+  }
+    myPlayer.on('error', function(e){ 
+    //alert("error", e);
+    }); 
+   if(vidMsg === "") {
+   //setTimeout(function(){
+   myPlayer.src(SRC_CONFIG);
    //}, 5000);
    }
    //end ready()
