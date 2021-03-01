@@ -5,10 +5,8 @@
 
 
   let params     = new URLSearchParams(document.location.search.substring(1));
-  //let accountId  = params.get('accountId');
-  let accountId = "LZsuF8";
-  //let streamName = params.get('streamName');
-  let streamName = "klmw71ty";
+  let accountId  = params.get('account');
+  let streamName = params.get('id');
   let subToken = params.get('token');// SubscribingToken - placed here for ease of testing, should come from secure location. (php/nodejs)
   let lang = document.getElementById('subtitles');
   let poster = "images/starting.png";
