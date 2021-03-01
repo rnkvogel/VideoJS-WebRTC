@@ -11,6 +11,9 @@ Once you have created your Millicast account create a new stream id.
 
 Demo link: https://rnkvogel.github.io/VideoJS-WebRTC/
 
+Demo Link 360 player: https://rnkvogel.github.io/VideoJS-WebRTC/360.html
+
+
 Input your stream name and account. Secure token is not required if you have not set up secure stream.
 
 Initial build will load if streaming or reload of page when streaming.(issue)
@@ -24,7 +27,7 @@ Control Bar includes
 1. Closed Captions for audio tranlation text
 2. AudioTrack selector for Audio Tranlations
 
-To DO 
+To be determined? 
 1. Seperate MultiOpus to be mapped to audioTrack changes
 2. VTT Server Wehook in real time from https://webcaptioner.com/captioner/settings/experiments
 
