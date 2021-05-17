@@ -386,10 +386,12 @@ function ready() {
 	let SETUP_CONFIG = {
       plugins:{},
 			controls: true, 
-                        autoplay: true, 
+                       // autoplay: true,
+		        autoplay: false,  //loas preset 
 			preload: "auto",
 			poster: poster,
-			muted: true,
+			//muted: true,
+		        muted: false, //load cache image
                         errorDisplay: false,
 		        languages:{"es":{"Play":"Juego"}},
 		        src: SRC_CONFIG
