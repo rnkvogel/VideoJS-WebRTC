@@ -25,6 +25,16 @@
 <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
 <script src="js/videojs-vr.js"></script>
   <script src="js/omnitone.js"></script>
+   <script>
+    (function(window, videojs) {
+      var player = window.player = videojs('videojs-vr-player');
+      player.mediainfo = player.mediainfo || {};
+      player.mediainfo.projection = '360';
+
+      // AUTO is the default and looks at mediainfo
+      var vr = window.vr = player.vr({projection: 'AUTO', debug: true, forceCardboard: false, omnitone: Omnitone, omnitoneOptions: {}});
+    }(window, window.videojs));
+  </script>
 </body>
 </htm
 </body>
