@@ -5,10 +5,11 @@
 
 
   let params     = new URLSearchParams(document.location.search.substring(1));
-  let accountId  = params.get('account');
-
-  let streamName = params.get('id');
-
+  let id = params.get('streamId');
+  let split = id.split('/');
+  let accountId = split[0];
+  let streamName = split[1];
+  
   let subToken = params.get('token');// SubscribingToken - placed here for ease of testing, should come from secure location. (php/nodejs)
   let lang = document.getElementById('subtitles');
   let poster = "images/starting.png";
